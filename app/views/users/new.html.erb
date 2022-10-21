@@ -10,12 +10,22 @@
   <button type="submit">Create</button>
 </form> %>
 
-<%= form_tag("/users", method: 'post') do %>
-  <%= label_tag(:name, 'Name:') %>
-  <%= text_field_tag(:name) %>
-  <%= label_tag(:email, 'Email:') %>
-  <%= email_field_tag(:email) %>
-  <%= label_tag(:password, 'Password:') %>
-  <%= password_field_tag(:password) %>
-  <%= submit_tag('Create') %>
+ <%# form_tag("/users", method: 'post') do %>
+  <%# label_tag(:name, 'Name:') %>
+  <%# text_field_tag(:name) %>
+  <%# label_tag(:email, 'Email:') %>
+  <%# email_field_tag(:email) %>
+  <%# label_tag(:password, 'Password:') %>
+  <%# password_field_tag(:password) %>
+  <%# submit_tag('Create') %>
+<%#= end %>
+
+<%= form_with model: @user do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, placeholder: 'Yujin' %>
+  <%= form.label :email %>
+  <%= form.email_field :email, placeholder: 'amazing@email.co.uk' %>
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+  <%= form.submit 'Create' %>
 <% end %>
